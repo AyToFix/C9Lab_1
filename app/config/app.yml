@@ -1,0 +1,3 @@
+environment:
+  FLASK_ENV: development
+  DATABASE_URL: mysql+pymysql://root:pmlb3gov@localhost/instagram_db1
