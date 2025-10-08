@@ -16,7 +16,7 @@ print("Пароль з .env:", password)  # Має 'pmlb3goV', не None
 # URI з дефолтом (якщо .env None — 'pmlb3goV')
 db_password = os.getenv('DB_PASSWORD', 'pmlb3goV')  # Дефолт
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f'mysql+pymysql://aytofix:{db_password}@dbserverlab1.mysql.database.azure.com/instagram_db1?ssl_ca=DigiCertGlobalRootG2.crt.pem&ssl_verify_cert=true'
+    'mysql+pymysql://aytofix:pmlb3goV@dbserverlab1.mysql.database.azure.com/instagram_db1?ssl_ca=DigiCertGlobalRootG2.crt.pem&ssl_verify_cert=true'
 )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Оптимізація
 
@@ -52,5 +52,8 @@ print("Сервер запущено на http://127.0.0.1:5000")
 print("Swagger UI: http://127.0.0.1:5000/apidocs")
 print("API endpoints: http://127.0.0.1:5000/users (GET/POST), /media (GET/POST), /saved_stories")
 
-if __name__ == "__main__":
-    app.run(debug=True)
+#if __name__ == "__main__":
+#    app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=False)
